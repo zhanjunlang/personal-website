@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>电影</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="icon" href="pictures/icon.png">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<style>
+p {
+    font-family: "Microsoft YaHei";
+}
+
+div#header h2 {
+    text-align: center;
+}
+
+div#navi ul li a {
+    font-family: "Microsoft YaHei";
+    font-size: 15px;
+    color: black;
+    padding: 5px 12px 5px 12px;
+    text-decoration: none;
+}
+
+div#navi ul li a:hover {
+    color: rgb(185, 176, 180);
+}
+
+button {
+    border: none;
+    background-color: white;
+}
+</style>
+
+<body>
+    <div id="header">
+        <h2 style=";"><img src="pictures/icon.png" style="height: 30px;padding-bottom: 5px;padding-right: 10px"><a href="zhan.html" style="text-decoration: none;color:rgba(66, 52, 58, 0.28);font-family:'Microsoft YaHei';">Long Mr.Zhan的个人空间</a></h2>
+    </div>
+    <div id="navi" class="container">
+        <ul class="nav nav-tabs nav-justified">
+            <li><a href="project.html">项目</a></li>
+            <li><a href="note.html">技术笔记</a></li>
+            <li><a href="game.html">游戏评测</a></li>
+            <li><a href="movie.html">电影</a></li>
+            <li><a href="life.php">生活</a></li>
+            <li><a href="download.html">资源</a></li>
+        </ul>
+    </div>
+    <div style="margin:30px 120px 100px">
+        <div>
+            <ul class="list-inline">
+                <li>
+                    <button class="all" style="color: white;border-radius: 15px;background-color: rgba(70, 187, 128, 0.54);">全部</button>
+                </li>
+                <li>
+                    <button class="animation">动漫</button>
+                </li>
+                <li>
+                    <button class="usa-drama">美剧</button>
+                </li>
+                <li>
+                    <button class="sci-fic">科幻</button>
+                </li>
+            </ul>
+        </div>
+        <div class="panel panel-success animation" style="height: 180px">
+            <div class="panel-heading">
+                <h3 class="panel-title">月刊少女野崎君</h3>
+            </div>
+            <div class="panel-body">
+                <img src="pictures/masaki.jpg" alt="月刊少女野崎君" style="height: 100px;float: left;margin-right: 20px">
+                <div style="float: left;">
+                    <p style="width: 700px;height: 65px;">
+                        全程欢笑高能，所有角色都塑造得很有特色，令人舒服。也许是因为一直在笑太累了，有时感觉笑了好久一看进度条才过了一半，这番真有毒。 
+                    </p>
+                    豆瓣链接：<a href="https://movie.douban.com/subject/25850705/">https://movie.douban.com/subject/25850705/</a>
+                    <p>发表于2017/08/03</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-success animation" style="height: 180px">
+            <div class="panel-heading">
+                <h3 class="panel-title">樱子小姐的脚下埋着尸体</h3>
+            </div>
+            <div class="panel-body">
+                <img src="pictures/sakura.jpg" alt="樱子小姐的脚下埋着尸体" style="height: 100px;float: left;margin-right: 20px">
+                <div style="float: left;">
+                    <p style="width: 700px;height: 65px;">
+                        与其说是推理，这番更多的是治愈性质吧。虽然全篇都是骨头和尸体，却意外地让人感到温暖和平缓。另外画风也很美，出现的人物基本上都是帅哥和美女。还有画面基本都是采用暖色调，这也许是令人不那么害怕的原因之一 
+                    </p>
+                    豆瓣链接：<a href="https://movie.douban.com/subject/26330440/">https://movie.douban.com/subject/26330440/</a>
+                    <p>发表于2017/07/29</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-success animation" style="height: 180px">
+            <div class="panel-heading">
+                <h3 class="panel-title">在下坂本，有何贵干？</h3>
+            </div>
+            <div class="panel-body">
+                <img src="pictures/sakamoto.jpg" alt="在下坂本，有何贵干？" style="height: 100px;float: left;margin-right: 20px">
+                <div style="float: left;">
+                    <p style="width: 700px;height: 65px;">
+                        坂本这个角色塑造的很棒，剧情也是很欢乐的。美中不足的是剧中对一些角色在作画上丑化得厉害，影响观感。
+                    </p>
+                    豆瓣链接：<a href="https://movie.douban.com/subject/26708698/">https://movie.douban.com/subject/26708698/</a>
+                    <p>发表于2017/07/24</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-success animation" style="height: 180px">
+            <div class="panel-heading">
+                <h3 class="panel-title">小魔女学园</h3>
+            </div>
+            <div class="panel-body">
+                <img src="pictures/little witch academia.jpg" alt="小魔女学园" style="height: 100px;float: left;margin-right: 20px">
+                <div style="float: left;">
+                    <p style="width: 700px;height: 65px;">
+                        好喜欢亚可和戴安娜！小魔女让我找回了当初看动漫的美好。从剧情，作画，人设，音乐来说都是满分。美中不中是最后几集实在太赶了，导致剧情发展非常生硬。希望有第二季吧，虽然貌似没什么可能了~~
+                    </p>
+                    豆瓣链接：<a href="https://movie.douban.com/subject/26826078/">https://movie.douban.com/subject/26826078/</a>
+                    <p>发表于2017/7/20</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-success usa-drama" style="height: 180px">
+            <div class="panel-heading">
+                <h3 class="panel-title">全境通告</h3>
+            </div>
+            <div class="panel-body">
+                <img src="pictures/abp.jpg" alt="全境通告" style="height: 100px;float: left;margin-right: 20px">
+                <div style="float: left;">
+                    <p style="width: 700px;height: 65px;">
+                        亿万富翁真闲啊，而且城市这么多案子同时发生，每集都用警局的全部资源去查一个案子这种设定好吗？高科技也没什么新意讲道理，无人机加外卖app，在中国已经很普遍了。万幸故事讲得还算流畅，不太拖沓。剧荒的时候看一两集还是可以的。
+                    </p>
+                    豆瓣链接：<a href="https://movie.douban.com/subject/26717000/">https://movie.douban.com/subject/26717000//</a>
+                    <p>发表于2017/7/15</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-success sci-fic" style="height: 180px">
+            <div class="panel-heading">
+                <h3 class="panel-title">攻壳机动队</h3>
+            </div>
+            <div class="panel-body">
+                <img src="pictures/gis.jpg" alt="攻壳机动队" style="height: 100px;float: left;margin-right: 20px">
+                <div style="float: left;">
+                    <p style="width: 700px;height: 65px;">
+                        其实还不错啦，巴特和素子造型好评。气氛背景还原得恰到好处，原作几个场景拼接过来也毫不违和。故事确实庸俗了点，不过这也是考虑到很多人没看过原作，所以也是情有可原的。
+                    </p>
+                    豆瓣链接：<a href="https://movie.douban.com/subject/25818101/">https://movie.douban.com/subject/25818101/</a>
+                    <p>发表于2017/7/13</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-success animation" style="height: 180px">
+            <div class="panel-heading">
+                <h3 class="panel-title">药师寺凉子怪奇事件簿</h3>
+            </div>
+            <div class="panel-body">
+                <img src="pictures/yakushiji.jpg" alt="药师寺凉子怪奇事件簿" style="height: 100px;float: left;margin-right: 20px">
+                <div style="float: left;">
+                    <p style="width: 700px;height: 65px;">
+                        剧情稍弱,不过番本来就不是看剧情的，全程被凉子女王迷得神魂颠倒。这番很多挑逗性的细节总是令人浮想联翩。 
+                    </p>
+                    豆瓣链接：<a href="https://movie.douban.com/subject/3088511/">https://movie.douban.com/subject/3088511/</a>
+                    <p>发表于2017/7/8</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-success animation" style="height: 180px">
+            <div class="panel-heading">
+                <h3 class="panel-title">acca13监察课</h3>
+            </div>
+            <div class="panel-body">
+                <img src="pictures/acca13.webp" alt="acca13监察课" style="height: 100px;float: left;margin-right: 20px">
+                <div style="float: left;">
+                    <p style="width: 700px;height: 65px;">
+                        俊美浪漫的画风，政变，香烟，美食，acca13监察课以优雅从容的方式讲述了王国的一场阴谋，情节把握恰到好处，一切都是水到渠成。另外已经沉迷op不能自拔~
+                    </p>
+                    豆瓣链接：<a href="https://movie.douban.com/subject/26801805/">https://movie.douban.com/subject/26801805/</a>
+                    <p>发表于2017/7/6</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: rgba(46, 99, 45, 0.88);width:100%;height:90px;bottom: 0px;position: fixed;">
+        <p style="color:#D6B9B9;text-align: center;padding-top: 20px">邮箱：zhanjunlang@sina.com</p>
+    </div>
+</body>
+<script>
+$(document).ready(function() {
+    $('button').click(function(event) {
+    	var type=$(this).attr('class');
+        $('button').css({
+            "border": 'none',
+            "background-color": 'white',
+            "color": "black"
+        });
+        $(this).css({
+            "border-radius": '15px',
+            "background-color": 'rgba(70, 187, 128, 0.54)',
+            "color": "white",
+            "outline":"none"
+        });
+        if(type=="all"){
+        	$("div.panel").show();
+        };
+        if(type=="animation"){
+        	$("div.panel").hide();
+        	$("div.animation").show();
+        };
+        if(type=="usa-drama"){
+        	$("div.panel").hide();
+        	$("div.usa-drama").show();
+        };
+        if(type=="sci-fic"){
+        	$("div.panel").hide();
+        	$("div.sci-fic").show();
+        };
+    });
+});
+</script>
+
+</html>

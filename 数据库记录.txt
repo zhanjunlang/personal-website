@@ -1,0 +1,2 @@
+Êý¾Ý±í
+film_review(name VARCHAR(200),type VARCHAR(100),review TEXT(2000),link VARCHAR(100))

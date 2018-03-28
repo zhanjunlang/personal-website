@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>项目</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="icon" href="pictures/icon.png">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<style>
+p {
+    font-family: "Microsoft YaHei";
+}
+
+div#header h2 {
+    text-align: center;
+}
+
+div#navi ul li a {
+    font-family: "Microsoft YaHei";
+    font-size: 15px;
+    color: black;
+    padding: 5px 12px 5px 12px;
+    text-decoration: none;
+}
+
+div#navi ul li a:hover {
+    color: rgb(185, 176, 180);
+}
+</style>
+
+<body>
+    <div id="header">
+        <h2 style=";"><img src="pictures/icon.png" style="height: 30px;padding-bottom: 5px;padding-right: 10px"><a href="zhan.html" style="text-decoration: none;color:rgba(66, 52, 58, 0.28);font-family:'Microsoft YaHei';">Long Mr.Zhan的个人空间</a></h2>
+    </div>
+    <div id="navi" class="container">
+        <ul class="nav nav-tabs nav-justified">
+            <li><a href="project.html">项目</a></li>
+            <li><a href="note.html">技术笔记</a></li>
+            <li><a href="game.html">游戏评测</a></li>
+            <li><a href="movie.html">电影</a></li>
+            <li><a href="life.html">生活</a></li>
+            <li><a href="download.html">资源</a></li>
+        </ul>
+    </div>
+   <div style="margin: 10px 15% 20px 15%;">
+
+        <p id="article-title" style="margin-bottom: 0px;padding: 3px;font-size: 20px;"><b>nhentai.net的图片爬取</b></p>
+        <p id="date">发表于2017/7/1</p>
+        <div id="main" style="padding: 10px;">
+            nhentai是绅士们都懂的网站，平时在上面看漫画时动则一百几十张，一张张打开等加载太麻烦，故基于Python的urllib库和BeautifulSoup库写了个小脚本来爬取图片，在此记录一下。
+            <br> 先上代码：
+            <br>
+            <pre>
+    import urllib.request as ur
+    from bs4 import BeautifulSoup as bs
+    origin="https://nhentai.net/g/200103/"  #目标漫画所在的url
+    headers = {
+        'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36'
+      }
+    for i in range(1,10000):
+        url=origin+str(i)
+        try:
+            req=ur.Request(url=url,headers=headers)
+            result=ur.urlopen(req).read().decode('utf-8')
+        except:
+            break
+        else:
+            html=bs(result)
+            img=html.select('section#image-container img')[0]
+            imgurl=img.get('src')
+            ur.urlretrieve(imgurl, filename=str(i)+'.jpg', reporthook=None, data=None)
+            </pre> 说一下这两个库的主要函数，先是urllib，在Python3中，它的导入方法和Python2不一样，导入语句为<code>import urllib.request as ur</code>。它的作用主要是获取一个html页面中的全部内容，实现这个功能只需要两句话：
+            <p><code>req=ur.Request(url=url,headers=headers)</code></p>
+            <p><code>result=ur.urlopen(req).read().decode('utf-8')</code></p> 第一句话是将对网页的请求封装起来，封装的内容有两个，首先url是目标网站的网址，headers在这里主要提供电脑浏览器的信息。第二句话就是执行封装好的请求，并将目标网站的整个html爬下来。
+            <br> 注：其实很多情况下直接用第二句话就成，将req换成目标网站的url就可以了。但是在这里会报错，错误如下：
+            <p>HTTP Error 403: Forbidden</p> 原因就是nhentai.net禁止网页爬虫，直接爬取的话由于没有浏览器的信息，所以会被判定为爬虫。解决办法就是加个headers伪装一下。headers的信息获取很简单，随便用浏览器打开一个网站，右键审查元素，选择network，刷新网站，就会显示浏览器发送的http请求，copy一下就好。
+            <br>当然光是把整个html页面弄下来是不够的，这里还需要用BeautifulSoup来处理，引入代码是<code>from bs4 import BeautifulSoup as bs</code>。几个重要的语句：
+            <ol>
+                <li><code>html=bs(result)</code> 将爬取的结果用BeautifulSoup来解析。</li>
+                <li><code>html.select('CSS选择器')</code> 选择特定的元素，语法和CSS选择器一样，注意这里返回的是列表。</li>
+                <li>用get方法获取属性值，如<code>img.get('src')</code></li>
+                <li>用<code>get_text()</code>方法获取文本内容</li>
+            </ol> 代码中用到如下结构：
+            <p><code>try:</code></p>
+            <p><code>except:</code></p>
+            <p><code>else:</code></p> 目的是如果图片爬完了就跳出循环。try是要执行的代码，except是如果出错的处理，else是如果不出错的处理。
+            <br> 最后是如何保存特定内容，这里是图片。所用的语句是 <code>ur.urlretrieve(imgurl, filename=str(i)+'.jpg', reporthook=None, data=None)</code>。该函数说明如下： <code>urlretrieve(url, filename=None, reporthook=None, data=None)</code> url是文件的网址，filename是保存文件的地址，reportbook是进度条，data是要post的数据，这里只关心前两个。
+        </div>
+    </div>
+    <div style="background-color: rgba(46, 99, 45, 0.88);width:100%;height:90px;bottom: 0px;">
+        <p style="color:#D6B9B9;text-align: center;padding-top: 20px">邮箱：zhanjunlang@sina.com</p>
+    </div>
+</body>
+
+</html>
